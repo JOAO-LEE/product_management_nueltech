@@ -14,4 +14,12 @@ const createProduct = async (product: Product) => {
   return createdProduct;
 };
 
-export { getAllProducts, getProductById, createProduct };
+const updateProduct = async (product: Product) => {
+  const createdProduct = await prisma.product.update({
+    where: { id: product.id },
+    data: product,
+  });
+  return createdProduct;
+};
+
+export { getAllProducts, getProductById, createProduct, updateProduct, };
