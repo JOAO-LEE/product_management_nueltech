@@ -1,6 +1,5 @@
-import { PrismaClient } from "../../generated/prisma/client";
 import { CreateProductInput, UpdateProductInput } from "../types/products";
-const prisma = new PrismaClient();
+import prisma from "../client/prisma";
 
 const getAllProducts = async () => {
   return await prisma.product.findMany();

@@ -1,4 +1,3 @@
-import { Product } from "../../generated/prisma";
 import {
   createProduct,
   deleteProduct,
