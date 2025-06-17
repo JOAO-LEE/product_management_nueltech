@@ -32,6 +32,12 @@ export function ProductTable() {
             <td>R$ {product.price.toFixed(2)}</td>
             <td>{product.category}</td>
             <td>{product.stock}</td>
+            <td>
+              <i className="ph ph-pencil-simple"></i>
+            </td>
+            <td>
+              <i className="ph ph-trash-simple"></i>
+            </td>
           </tr>
         ))}
       </tbody>
