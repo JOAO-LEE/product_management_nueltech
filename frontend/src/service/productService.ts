@@ -13,3 +13,16 @@ export async function fetchAllProducts(): Promise<{
   const result = await response.json();
   return result;
 }
+
+export async function fetchProductById(productId: number): Promise<{
+  success: boolean;
+  data: Product;
+}> {
+  const response = await fetch(`${API_BASE_URL}/${productId}`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch products");
+  }
+
+  const result = await response.json();
+  return result;
+}
