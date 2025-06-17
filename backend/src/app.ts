@@ -5,6 +5,7 @@ import express, {
 } from "express";
 import {
   createProduct,
+  deleteProduct,
   getAllProducts,
   getProductById,
   updateProduct,
@@ -22,8 +23,7 @@ app.get("/", async (_req, resp: Response) => {
 app.get("/:id", async (req: Request, resp: Response) => {
   const { id } = req.params;
   const product = await getProductById(+id);
-  if (!product)
-    return resp.status(404).json({ message: "No product were found" });
+  if (!product) return resp.status(404).json({ message: "Product not found" });
   return resp.status(200).json({ product });
 });
 
@@ -37,10 +37,17 @@ app.put("/:id", async (req: Request, resp: Response) => {
   const { id } = req.params;
   const productToUpdate = req.body;
   const product = await getProductById(+id);
-  if (!product)
-    return resp.status(404).json({ message: "No product were found" });
+  if (!product) return resp.status(404).json({ message: "Product not found" });
   const updatedProduct = await updateProduct(productToUpdate);
   return resp.status(200).json({ updatedProduct });
+});
+
+app.delete("/:id", async (req: Request, resp: Response) => {
+  const { id } = req.params;
+  const product = await getProductById(+id);
+  if (!product) return resp.status(404).json({ message: "Product not found" });
+  const deletedProduct = await deleteProduct(+id);
+  return resp.status(200).json({ deletedProduct });
 });
 
 export default app;
