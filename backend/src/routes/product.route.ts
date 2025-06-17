@@ -1,18 +1,18 @@
 import { Router } from "express";
 import {
-  create,
-  deleteProductController,
-  getAll,
-  getById,
-  update,
+  createCrontroller,
+  deleteController,
+  getAllController,
+  getByIdController,
+  updateController,
 } from "../controllers/product.controller";
 
 const router = Router();
 
-router.get("/", getAll);
-router.get("/:id", getById);
-router.post("/", create);
-router.put("/:id", update);
-router.delete("/:id", deleteProductController);
+router.get("/", getAllController);
+router.get("/:id", getByIdController);
+router.post("/", createCrontroller);
+router.put("/:id", updateController);
+router.delete("/:id", deleteController);
 
 export default router;
