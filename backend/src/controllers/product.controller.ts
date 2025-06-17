@@ -1,3 +1,4 @@
+import { Product } from "../../generated/prisma";
 import {
   createProduct,
   deleteProduct,
@@ -26,18 +27,13 @@ const createCrontroller = async (req: Request, res: Response) => {
 };
 
 const updateController = async (req: Request, res: Response) => {
-  const { id } = req.params;
   const productToUpdate = req.body;
-  const product = await getProductById(+id);
-  if (!product) return res.status(404).json({ message: "Product not found" });
   const updatedProduct = await updateProduct(productToUpdate);
   return res.status(200).json({ updatedProduct });
 };
 
 const deleteController = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const product = await getProductById(+id);
-  if (!product) return res.status(404).json({ message: "Product not found" });
   await deleteProduct(+id);
   return res.status(204);
 };
