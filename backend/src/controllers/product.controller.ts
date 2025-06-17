@@ -8,4 +8,11 @@ const getAll = async (req: Request, res: Response) => {
   return res.status(200).json({ product });
 };
 
-export { getAll };
+const getById = async (req: Request, resp: Response) => {
+  const { id } = req.params;
+  const product = await getProductById(+id);
+  if (!product) return resp.status(404).json({ message: "Product not found" });
+  return resp.status(200).json({ product });
+};
+
+export { getAll, getById };
