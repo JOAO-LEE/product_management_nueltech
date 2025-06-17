@@ -1,4 +1,3 @@
-import { Product } from "../../generated/prisma";
 import { z } from "zod";
 import {
   createProductSchema,
