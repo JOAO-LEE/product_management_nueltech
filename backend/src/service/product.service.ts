@@ -22,4 +22,15 @@ const updateProduct = async (product: Product) => {
   return createdProduct;
 };
 
-export { getAllProducts, getProductById, createProduct, updateProduct, };
+const deleteProduct = async (id: number) => {
+  const deletedProduct = await prisma.product.delete({ where: { id } });
+  return deletedProduct;
+};
+
+export {
+  getAllProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+};
