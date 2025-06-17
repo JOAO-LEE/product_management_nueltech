@@ -2,6 +2,7 @@ import {
   createProduct,
   getAllProducts,
   getProductById,
+  updateProduct,
 } from "../service/product.service";
 import { type Request, type Response } from "express";
 
@@ -23,4 +24,13 @@ const create = async (req: Request, res: Response) => {
   return res.status(201).json({ product });
 };
 
-export { getAll, getById, create };
+const update = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const productToUpdate = req.body;
+  const product = await getProductById(+id);
+  if (!product) return res.status(404).json({ message: "Product not found" });
+  const updatedProduct = await updateProduct(productToUpdate);
+  return res.status(200).json({ updatedProduct });
+};
+
+export { getAll, getById, create, update };
