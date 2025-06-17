@@ -9,22 +9,22 @@ const getProductById = async (id: number) => {
   return await prisma.product.findFirst({ where: { id } });
 };
 
-const createProduct = async (product: CreateProductInput) => {
-  const createdProduct = await prisma.product.create({ data: product });
-  return createdProduct;
+const createProduct = async (productInput: CreateProductInput) => {
+  const product = await prisma.product.create({ data: productInput });
+  return product;
 };
 
-const updateProduct = async (product: UpdateProductInput) => {
-  const createdProduct = await prisma.product.update({
-    where: { id: product.id },
-    data: product,
+const updateProduct = async (productInput: UpdateProductInput) => {
+  const product = await prisma.product.update({
+    where: { id: productInput.id },
+    data: productInput,
   });
-  return createdProduct;
+  return product;
 };
 
 const deleteProduct = async (id: number) => {
-  const deletedProduct = await prisma.product.delete({ where: { id } });
-  return deletedProduct;
+  const product = await prisma.product.delete({ where: { id } });
+  return product;
 };
 
 export {
