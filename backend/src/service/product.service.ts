@@ -1,4 +1,4 @@
-import { CreateProductInput, UpdateProductInput } from "../types/products";
+import { CreateProductInput, UpdateProductInput } from "../types/products.type";
 import prisma from "../client/prisma";
 
 const getAllProducts = async () => {
@@ -6,7 +6,7 @@ const getAllProducts = async () => {
 };
 
 const getProductById = async (id: number) => {
-  return await prisma.product.findFirst({ where: { id } });
+  return await prisma.product.findUnique({ where: { id } });
 };
 
 const createProduct = async (productInput: CreateProductInput) => {
