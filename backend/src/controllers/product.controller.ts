@@ -1,5 +1,6 @@
 import {
   createProduct,
+  deleteProduct,
   getAllProducts,
   getProductById,
   updateProduct,
@@ -33,4 +34,12 @@ const update = async (req: Request, res: Response) => {
   return res.status(200).json({ updatedProduct });
 };
 
-export { getAll, getById, create, update };
+const deleteProductController = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const product = await getProductById(+id);
+  if (!product) return res.status(404).json({ message: "Product not found" });
+  const deletedProduct = await deleteProduct(+id);
+  return res.status(204);
+};
+
+export { getAll, getById, create, update, deleteProductController };
