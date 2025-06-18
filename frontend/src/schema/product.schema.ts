@@ -7,7 +7,7 @@ export const productSchema = z.object({
   price: z
     .number({ coerce: true, invalid_type_error: "Preço deve ser um número" })
     .positive("Preço não pode ser negativo"),
-  category: z.string().optional(),
+  category: z.string().min(1, "Nome da categoria é obrigatória"),
   stock: z
     .number({ coerce: true, invalid_type_error: "Estoque deve ser um número" })
     .int()
