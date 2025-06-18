@@ -1,6 +1,11 @@
-export function Toast({ message }: { message: string }) {
+import { useContext } from "react";
+import "./Toast.css";
+import { ToastContext } from "../../context/ToastContext";
+export function Toast() {
+  const { message, type, toastIsOpen } = useContext(ToastContext);
+
   return (
-    <div style={{ background: "black", padding: "1.5rem" }}>
+    <div className={`toast ${type} ${toastIsOpen ? "show" : ""}`}>
       <p>{message}</p>
     </div>
   );

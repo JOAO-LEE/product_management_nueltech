@@ -1,25 +1,34 @@
 import { useState, type ReactNode } from "react";
 import { ToastContext } from "./ToastContext";
+import type { ToastProps } from "../types/ToastContext";
 
 export function ToastProvider({ children }: { children: ReactNode }) {
   const [toastIsOpen, setToastIsOpen] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>("");
+  const [toastProps, setToastProps] = useState<ToastProps>({
+    message: "",
+    type: "",
+  });
 
   const toggleToast = () => {
     setToastIsOpen(!toastIsOpen);
   };
 
-  const createToastMessage = () => {
-    setMessage(message);
+  const createToast = ({ message, type }: ToastProps) => {
+    toggleToast();
+    setToastProps({ message, type });
+    setTimeout(() => {
+      setToastIsOpen(false);
+    }, 5000);
   };
 
   return (
     <ToastContext.Provider
       value={{
         toggleToast,
-        message,
+        message: toastProps.message,
         toastIsOpen,
-        createToastMessage,
+        createToast,
+        type: toastProps.type,
       }}
     >
       {children}

@@ -3,8 +3,12 @@ import { Route, Routes } from "react-router";
 import { Home } from "./page/Home/Home";
 import { Product } from "./page/Product/Product";
 import { Create } from "./page/Create/Create";
+import { Toast } from "./ui/Toast/Toast";
+import { useContext } from "react";
+import { ToastContext } from "./context/ToastContext";
 
 function App() {
+  const { toastIsOpen } = useContext(ToastContext);
   return (
     <main id="page-content">
       <Routes>
@@ -12,6 +16,7 @@ function App() {
         <Route path="/:id" element={<Product />} />
         <Route path="/create" element={<Create />} />
       </Routes>
+      {toastIsOpen ? <Toast /> : <></>}
     </main>
   );
 }
