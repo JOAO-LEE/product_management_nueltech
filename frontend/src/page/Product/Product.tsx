@@ -10,19 +10,14 @@ import { DeleteConfirmationDialog } from "../../components/DeleteConfirmationDia
 
 export function Product() {
   const [product, setProduct] = useState<Product | null>(null);
-  const [showDeletionDialog, setShowDeletionDialog] = useState<boolean>(false);
-
   const dialogRef = useRef<HTMLDialogElement | null>(null);
-
-  useEffect(() => {
-    if (showDeletionDialog && dialogRef.current) {
-      dialogRef.current.showModal();
-    } else {
-      dialogRef.current?.close();
-      setShowDeletionDialog(!showDeletionDialog);
-    }
-  }, [showDeletionDialog]);
   const params = useParams();
+
+  // useEffect(() => {
+  //   if (dialogRef.current) {
+  //     dialogRef.current.showModal();
+  //   }
+  // }, [showDeletionDialog]);
 
   useEffect(() => {
     if (params.id) {
@@ -56,7 +51,7 @@ export function Product() {
         </Button> */}
           <Button
             onClick={() => {
-              setShowDeletionDialog(!showDeletionDialog);
+              dialogRef.current?.showModal();
             }}
           >
             <i className="ph ph-trash-simple"></i>
