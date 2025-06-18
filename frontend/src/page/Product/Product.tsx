@@ -33,16 +33,16 @@ export function Product() {
             <li>Categoria: {product?.category}</li>
             <li>Estoque: {product?.stock}</li>
           </ul>
-          <div>
-            <Button
-              onClick={() => {
-                dialogRef.current?.showModal();
-              }}
-            >
-              <i className="ph ph-trash-simple"></i>
-              Deletar
-            </Button>
-          </div>
+        </div>
+        <div>
+          <Button
+            onClick={() => {
+              dialogRef.current?.showModal();
+            }}
+          >
+            <i className="ph ph-trash-simple"></i>
+            Deletar
+          </Button>
         </div>
       </section>
       <DeleteConfirmationDialog dialogRef={dialogRef} product={product} />
