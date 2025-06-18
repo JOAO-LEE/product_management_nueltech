@@ -36,7 +36,7 @@ export function ProductTable({ products }: { products: Product[] }) {
                 Ver
               </button>
 
-              <button>
+              <button onClick={() => navigate(`/edit/${product.id}`)}>
                 <i className="ph ph-pencil"></i>
                 Editar
               </button>
