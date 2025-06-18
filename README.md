@@ -1,17 +1,18 @@
 # 🛍️ Product Management Nuel Tech
+
 Aplicação fullstack feita com React (TypeScript) e Express.js (Node.js e TypeScript). Simula o gerenciamento de produtos com funcionalidades de criação, listagem, edição e exclusão.
 
-<details>
-<summary>Backend</summary>
-
-### 📦 Instalação
+## 📦 Instalação
 
 ### 1. Clone o repositório
 
 ```bash
 git clone https://github.com/JOAO-LEE/product_management_nueltech.git
-cd seu-repo
+cd product_management_nueltech
 ```
+
+<details>
+<summary>Backend</summary>
 
 ### 2. Instale as dependências
 
@@ -44,7 +45,7 @@ Isso iniciará um container MySQL com as credenciais fornecidas.
 
 Com o Dockerfile:
 
-1. Crie um Dockerfile com o seguinte conteúdo:
+### 4.1. Crie um Dockerfile com o seguinte conteúdo:
 
 ```Dockerfile
 
@@ -62,14 +63,14 @@ CMD ["mysqld"]
 
 ```
 
-2. Rode os seguintes comandos:
+### 5. Rode os seguintes comandos:
 
 ```bash
 docker build -t mysql-custom .
 docker run -d -p 3306:3306 --name mysql-db mysql-custom
 ```
 
-### 4. 🛠️ Configuração do Banco
+### 6. 🛠️ Configuração do Banco
 
 Na pasta backend, execute:
 
@@ -77,4 +78,43 @@ Na pasta backend, execute:
 npx prisma migrate dev
 npx prisma db seed
 ```
+
+### 7. Rode a aplicação
+
+```bash
+npm run dev
+```
+
+</details>
+<hr>
+<details>
+<summary>Frontend</summary>
+
+### 1. Navegue até a pasta
+
+```bash
+cd ../
+cd frontend/
+```
+
+### 2. Instale as dependências
+
+```bash
+npm install
+```
+
+### 3. Crie um arquivo .env.local
+
+Insira o seguinte conteúdo:
+
+```env
+VITE_API_BASE_URL=http://localhost:8080
+```
+
+### 4. Rode a aplicação
+
+```bash
+npm run dev
+```
+
 </details>
