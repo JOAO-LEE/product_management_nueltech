@@ -77,7 +77,7 @@ Na pasta backend, execute:
 ```bash
 npx prisma migrate reset
 npx prisma migrate dev
-npx prisma db seed
+npm run seed
 ```
 
 ### 7. Rode a aplicação
