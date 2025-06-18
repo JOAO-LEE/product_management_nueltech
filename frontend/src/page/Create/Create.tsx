@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { createProduct } from "../../service/productService";
 import { useNavigate } from "react-router";
+import { ErrorMessage } from "../../ui/ErrorMessage/ErrorMessage";
 
 export function Create() {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ export function Create() {
               placeholder="Nome"
             />
           </InputRoot>
-          {errors.name && <p>{errors.name.message}</p>}
+          {errors.name && <ErrorMessage message={errors.name.message} />}
 
           <InputRoot>
             <InputField
@@ -55,7 +56,9 @@ export function Create() {
               placeholder="Descrição"
             />
           </InputRoot>
-          {errors.category && <p>{errors.category.message}</p>}
+          {errors.category && (
+            <ErrorMessage message={errors.description?.message} />
+          )}
 
           <InputRoot>
             <InputField
@@ -65,7 +68,9 @@ export function Create() {
               placeholder="Categoria"
             />
           </InputRoot>
-          {errors.category && <p>{errors.category.message}</p>}
+          {errors.category && (
+            <ErrorMessage message={errors.category.message} />
+          )}
 
           <InputRoot>
             <InputField
@@ -75,7 +80,7 @@ export function Create() {
               placeholder="Estoque"
             />
           </InputRoot>
-          {errors.stock && <p>{errors.stock.message}</p>}
+          {errors.stock && <ErrorMessage message={errors.stock.message} />}
 
           <InputRoot>
             <InputField
@@ -85,7 +90,7 @@ export function Create() {
               placeholder="Preço"
             />
           </InputRoot>
-          {errors.price && <p>{errors.price.message}</p>}
+          {errors.price && <ErrorMessage message={errors.price.message} />}
           <Button type="submit">Criar</Button>
         </form>
       </div>
