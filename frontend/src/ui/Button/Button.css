@@ -1,0 +1,24 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: #101612;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  width: fit-content;
+}
+
+.button:hover {
+  background-color: #101612;
+  color: #ffe790;
+}
+
+.button i {
+  font-size: 1.2rem;
+}
