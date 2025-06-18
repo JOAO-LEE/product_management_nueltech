@@ -1,6 +1,8 @@
 # 🛍️ Product Management Nuel Tech
+Aplicação fullstack feita com React (TypeScript) e Express.js (Node.js e TypeScript). Simula o gerenciamento de produtos com funcionalidades de criação, listagem, edição e exclusão.
 
-## Backend
+<details>
+<summary>Backend</summary>
 
 ### 📦 Instalação
 
@@ -75,3 +77,4 @@ Na pasta backend, execute:
 npx prisma migrate dev
 npx prisma db seed
 ```
+</details>
