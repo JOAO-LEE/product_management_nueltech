@@ -20,13 +20,27 @@ export function ProductTable({ products }: { products: Product[] }) {
       </thead>
       <tbody>
         {products?.map((product) => (
-          <tr key={product.id} onClick={() => navigate(`/${product.id}`)}>
+          <tr>
             <td>{product.id}</td>
             <td>{product.name}</td>
             <td>{product.description ?? "—"}</td>
             <td>R$ {product.price.toFixed(2)}</td>
             <td>{product.category}</td>
             <td>{product.stock}</td>
+            <td>
+              <button
+                key={product.id}
+                onClick={() => navigate(`/${product.id}`)}
+              >
+                <i className="ph ph-eye"></i>
+                Ver
+              </button>
+
+              <button>
+                <i className="ph ph-pencil"></i>
+                Editar
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
