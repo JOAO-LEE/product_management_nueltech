@@ -1,0 +1,28 @@
+.product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 1.5rem;
+  background-color: #101612;
+  border-radius: 12px;
+  color: #ffe790;
+  box-shadow: 0 0 10px rgba(206, 174, 60, 0.3);
+  max-width: 500px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.product-details li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #292b20;
+}
+
+.product-details li:last-child {
+  border-bottom: none;
+}
