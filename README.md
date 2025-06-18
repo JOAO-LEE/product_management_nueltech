@@ -75,6 +75,7 @@ docker run -d -p 3306:3306 --name mysql-db mysql-custom
 Na pasta backend, execute:
 
 ```bash
+npx prisma migrate reset
 npx prisma migrate dev
 npx prisma db seed
 ```
