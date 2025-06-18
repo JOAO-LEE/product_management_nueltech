@@ -1,0 +1,44 @@
+.delete-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background-color: #292b20;
+  border: none;
+  border-radius: 15px;
+  padding: 2rem;
+  color: #ffe790;
+  font-size: 1.2rem;
+}
+
+.delete-dialog::backdrop {
+  backdrop-filter: blur(2.5px);
+}
+
+.product-info {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: end;
+  /* flex-direction: column; */
+  gap: 0.4rem;
+}
+
+.dialog-buttons {
+  padding: 0.5rem 1rem;
+  border: 2px solid #ffe790;
+  background-color: transparent;
+  color: #ffe790;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dialog-buttons:hover {
+  background-color: #ffe790;
+  color: #101612;
+}
