@@ -8,3 +8,9 @@ export const productSchema = z.object({
   category: z.string().min(1, "Category is required"),
   stock: z.number().int().nonnegative("Stock must be a non-negative integer"),
 });
+
+export const createProductSchema = productSchema.omit({ id: true });
+
+export const updateProductSchema = productSchema.partial().extend({
+  id: z.number().int(),
+});
