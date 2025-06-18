@@ -1,0 +1,16 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.home-container div {
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-container div h1 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2rem;
+}
